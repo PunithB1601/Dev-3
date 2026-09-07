@@ -1,0 +1,45 @@
+mysql> CREATE DATABASE JDBC_DEMO;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> USE JDBC_DEMO;
+Database changed
+mysql> CREATE TABLE STUDENT(
+    -> ID INT PRIMARY KEY AUTO_INCREMENT,
+    -> NAME VARCHAR(20) NOT NULL,
+    -> PHONE VARCHAR(20) UNIQUE NOT NULL,
+    -> EMAIL VARCHAR(50) UNIQUE NOT NULL
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+
+====ADDING PASSWORD COLUMN TO STUDENT TABLE====
+> ALTER TABLE STUDENT
+    -> ADD PASSWORD VARCHAR(20);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC STUDENT;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| ID       | int         | NO   | PRI | NULL    | auto_increment |
+| NAME     | varchar(20) | NO   |     | NULL    |                |
+| PHONE    | varchar(20) | NO   | UNI | NULL    |                |
+| EMAIL    | varchar(50) | NO   | UNI | NULL    |                |
+| PASSWORD | varchar(20) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.03 sec)
+
+mysql> SELECT * FROM STUDENT;
++----+-------+------------+-----------------+----------+
+| ID | NAME  | PHONE      | EMAIL           | PASSWORD |
++----+-------+------------+-----------------+----------+
+|  1 | Rahul | 1234512345 | rahul@gmail.com | NULL     |
++----+-------+------------+-----------------+----------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE STUDENT
+    -> SET PASSWORD='1234'
+    -> WHERE ID=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
