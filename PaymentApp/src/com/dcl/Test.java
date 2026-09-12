@@ -1,7 +1,7 @@
 package com.dcl;
 
 import java.util.Scanner;
-
+//Customer Utilization Logic
 public class Test {
 
 	public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Test {
 		String paymentMode=sc.nextLine();
 		
 		Payment p=Bill_PaymentFactory.getPayment(paymentMode);
-	//  Payment p=new DebitCard();	
+	//  Payment p=new CreditCard();	
 		if(p!=null) {
 			p.doPayment();
 		}
