@@ -29,7 +29,10 @@ public class Register extends HttpServlet{
 			s.setEmail(req.getParameter("email"));
 			s.setPassword(req.getParameter("password"));
 			sdao.insertStudent(s);
-			resp.getWriter().println("User Registered Successfully!");
+			
+			req.setAttribute("success-msg", "Data added successfully!");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
+		//	resp.getWriter().println("User Registered Successfully!");
 		}
 		else {
 			resp.getWriter().println("Password mismatch!");
