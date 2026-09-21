@@ -11,7 +11,11 @@
   <form action="login" method="post">
   <%String successMessage=(String)request.getAttribute("success-msg");%>
   <%if(successMessage!=null){%>
-  <h3 style="color:green;"><%=successMessage%></h3>
+  <p style="color:green;"><%=successMessage%></p>
+  <%}%>
+  <%String errorMessage=(String)request.getAttribute("error-message");%>
+  <%if(errorMessage!=null){%>
+  <p style="color:red;"><%=errorMessage%></p>
   <%}%>
 	<tr>
 		<td>Enter the email ID:</td>

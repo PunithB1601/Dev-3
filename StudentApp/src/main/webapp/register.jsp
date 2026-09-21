@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
 	<h1>Student Registration Page</h1>
@@ -31,7 +32,9 @@
 			<td><input type="password" name="confirm"></td>
 		</tr>
 		<tr>
-			<td><button type="submit">Register</button></td>
+			<td><button type="submit" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
+  Register
+</button></td>
 		</tr>
 	</table>
 	</form>

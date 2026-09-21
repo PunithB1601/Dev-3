@@ -23,14 +23,19 @@ public class Login extends HttpServlet{
 		
 		if(s!=null) {
 			if(s.getPassword().equals(req.getParameter("password"))) {
-				resp.getWriter().println("Login succesful!, Welcome "+s.getName());
+				//resp.getWriter().println("Login succesful!, Welcome "+s.getName());
+				req.setAttribute("student", s);
+				req.setAttribute("success-message", "Login successful!");
+				req.getRequestDispatcher("dashboard.jsp").forward(req, resp);
 			}
 			else {
-				resp.getWriter().println("Invalid Password!");
+				req.setAttribute("error-message", "Invalid Password!");
+				req.getRequestDispatcher("login.jsp").forward(req, resp);
 			}
 		}
 		else {
-			resp.getWriter().println("User not found!");
+			req.setAttribute("error-message", "User Not Found!");
+			req.getRequestDispatcher("login.jsp").forward(req, resp);
 		}
 		
 		
