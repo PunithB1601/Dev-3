@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class Login extends HttpServlet{
@@ -24,9 +25,13 @@ public class Login extends HttpServlet{
 		if(s!=null) {
 			if(s.getPassword().equals(req.getParameter("password"))) {
 				//resp.getWriter().println("Login succesful!, Welcome "+s.getName());
-				req.setAttribute("student", s);
+				
+				
+				//CREATION OF SESSION OBJ
+				HttpSession session=req.getSession();
+				session.setAttribute("student", s);
 				req.setAttribute("success-message", "Login successful!");
-				req.getRequestDispatcher("dashboard.jsp").forward(req, resp);
+				req.getRequestDispatcher("dashboard.jsp").forward(req, resp); //we are using RequestDispatcher just to send success-msg, not the student
 			}
 			else {
 				req.setAttribute("error-message", "Invalid Password!");

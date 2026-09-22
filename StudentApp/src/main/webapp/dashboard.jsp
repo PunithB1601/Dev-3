@@ -8,16 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%Student s=(Student)request.getAttribute("student");%>
+
+<%Student s=(Student)session.getAttribute("student");%>
 <%if(s!=null){%>
+<%=request.getRequestedSessionId()%>
 <header>
 <h1>Welcome <%=s.getName()%>,</h1>
 <nav>
 	<ul>
 		<li><a href="vieStudents.jsp">View Students</a></li>
-		<li><a href="vieStudents.jsp">Update Account</a></li>
+		<li><a href="updateAccount.jsp">Update Account</a></li>
 		<li><a href="vieStudents.jsp">Reset Password</a></li>
-		<li><a href="logout">Logout</a></li>
+		<li><button><a href="logout">Logout</a></button></li>
 	</ul>
 </nav>
 
@@ -46,5 +48,6 @@
 </table>
 </header>
 <%}%>
+                                                                                 
 </body>
 </html>
