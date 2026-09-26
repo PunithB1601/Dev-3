@@ -30,6 +30,8 @@
 		<td><a href="forgotPassword.jsp">forgot Password?</a></td>
 	</tr>
 	</form>
+	
 </table>
+Don't have a account?<a href="register.jsp">Register</a>
 </body>
 </html>

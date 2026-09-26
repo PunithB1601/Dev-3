@@ -28,7 +28,7 @@ public class Update extends HttpServlet{
 			sessionStudent.setName(req.getParameter("name"));
 			sessionStudent.setPhone(req.getParameter("phone"));
 			sessionStudent.setEmail(req.getParameter("email"));
-			sdao.updateStudent(s);
+			sdao.updateStudent(sessionStudent);
 			req.setAttribute("success-message", "Student Updated successfully!");
 			req.getRequestDispatcher("dashboard.jsp").forward(req, resp);
 		}

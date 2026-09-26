@@ -119,7 +119,7 @@ public class StudentDAOImpl implements StudentDAO {
 	public List<Student> getAllStudent() {
 		List<Student> studentList=new ArrayList();
 		Student s=null;
-		String query="SELECT * FROM STUDENT";
+		String query="SELECT * FROM STUDENT WHERE ID!=1";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ResultSet rs=ps.executeQuery();
