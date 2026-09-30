@@ -10,6 +10,10 @@ interface Bank{
 		System.out.println("Handle deposits in Dollars");
 	}
 	
+	static void loanSanction() {
+		System.out.println("Loan feature available");
+	}
+	
 }
 
 class CanaraBank implements Bank{
@@ -28,7 +32,6 @@ class CanaraBank implements Bank{
 	public void intlDeposit() {
 		Bank.super.intlDeposit();
 	}
-	
 	
 	
 }
@@ -78,6 +81,7 @@ public class BankTest {
 		b1.deposit();
 		b1.getBalance();
 		b1.intlDeposit();
+		Bank.loanSanction();
 		System.out.println("-----------");
 		Bank b2=new AxisBank();
 		b2.deposit();
