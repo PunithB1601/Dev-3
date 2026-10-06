@@ -18,5 +18,8 @@ public class Test1 {
 		List<Integer> iList=Arrays.asList(1,4,7,6,3,5,6,8,9);
 		Stream s2=iList.stream();
 		s2.forEach(System.out::println);
+		
+		
+
 	}
 }

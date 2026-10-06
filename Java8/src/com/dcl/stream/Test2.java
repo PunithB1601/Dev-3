@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -147,5 +148,44 @@ public class Test2 {
 		//8. WAP to display the emp records who is getting sal more than 30000 and working in IT dept.
 				
 				eList.stream().filter((e)->e.sal>30000.0&&e.dname.equalsIgnoreCase("IT")).forEach(System.out::println);
+				
+				System.out.println("=====================");
+		//9. WAP to display the emp fname and emp lname if the emp fname starts with S or A.
+		
+		/**		Stream s1=eList.stream();  -- convert List to stream 
+				Predicate<Emp> p1=(e)->e.fname.startsWith("S")||e.fname.startsWith("A"); -- creating a condition by using Predicate 
+				Stream s2=s1.filter(p1);  -- Applying filter based on the condition written 
+				Function<Emp, String> f1=(e)->e.fname+" "+e.lname; -- modifying the content to be displayed 
+				Stream s3=s2.map(f1);
+				s3.forEach(System.out::println);  **/
+				 
+				eList.stream().filter((e)->e.fname.startsWith("S")||e.fname.startsWith("A")).map((e)->e.fname+" "+e.lname).forEach(System.out::println);
+				
+				System.out.println("=====================");
+		
+		//10. WAP to display the emp fname, job, sal if the emp is working in HR dept.
+				
+				eList.stream().filter((e)->e.dname.equals("HR")).map((e)->e.fname+" "+e.job+" "+e.sal).forEach(System.out::println);
+				
+				System.out.println("=====================");
+		//11. WAP to display the fullname of all the emp.
+				
+				eList.stream().map((e)->e.fname+" "+e.lname).forEach(System.out::println);
+				
+				System.out.println("=====================");
+		
+		//12. WAP to display the emp names in below format.
+				//e.fname=Siddarth e.lname=Patil -> Siddarth.P
+				
+				eList.stream().map((e)->e.fname+"."+e.lname.substring(0, 1)).forEach(System.out::println);
+		
+		//13. WAP to display the first half of the fname. 		
+		
+		//14. WAP to display the second half of the fname.
+	
+		
+				
+		
+				
 	}
 }
